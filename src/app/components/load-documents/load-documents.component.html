@@ -1,0 +1,13 @@
+<div class="content mat-elevation-z8">
+    <input class="searchBox" #docSearchInput matInput placeholder="Start typing document name" />   
+    <mat-grid-list [cols]="cols" rowHeight="100px">
+        <mat-grid-tile
+            *ngFor="let doc of docList">
+          <div class="tile-content mat-elevation-z8">
+            <p class="tile-heading">{{doc.name}}</p>
+            <p class="tile-tag">
+                    <span>{{doc.type}}</span></p>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

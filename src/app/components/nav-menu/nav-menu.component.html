@@ -1,0 +1,26 @@
+<!--Desktop Layout-->
+<mat-sidenav-container *ngIf="!isMobileLayout">
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" mode="side" opened>
+      <mat-nav-list *ngFor="let option of list">
+        <div>
+          <a mat-list-item [routerLink]="['docs', option]" [routerLinkActive]="['activeLink']">
+            {{option}}
+          </a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <!-- Mobile Layout (Breakpoint is 720px)-->
+  <div *ngIf="isMobileLayout">
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let option of list"
+        [routerLink]="['docs', option]"
+         (click)="activeLink = option"
+         [active]="activeLink == option"> {{option}} </a>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+ 
